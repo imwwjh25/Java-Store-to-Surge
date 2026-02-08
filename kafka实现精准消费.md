@@ -16,9 +16,7 @@ Kafka 的 Exactly-Once 语义是基于以下几个核心机制协同工作实现
 
    - **解决**：生产者在初始化时可以开启幂等性（`enable.idempotence = true`）。开启后，Kafka 会为每个生产者分配一个唯一的`Producer ID (PID)`，并且为每个消息批次分配一个**序列号（Sequence Number）**。
 
-   - 原理
-
-     ：Broker 端会记录每个 PID 在每个分区上已经提交的最大序列号。当生产者发送一个消息时，Broker 会检查：
+   - 原理 ：Broker 端会记录每个 PID 在每个分区上已经提交的最大序列号。当生产者发送一个消息时，Broker 会检查：
 
      - 如果序列号比 Broker 记录的大 1，则正常接收。
      - 如果序列号小于或等于 Broker 记录的，则说明是重复消息，Broker 会直接丢弃它，而不会写入日志。
@@ -31,9 +29,7 @@ Kafka 的 Exactly-Once 语义是基于以下几个核心机制协同工作实现
 
    - **解决**：Kafka 引入了事务协调器（Transaction Coordinator）和事务日志（Transaction Log）。
 
-   - 原理
-
-     ：
+   - 原理 ：
 
      - **生产者**：可以将一系列生产请求（可能发往多个主题和分区）和消费偏移量提交请求包装在一个事务中。
      - **事务协调器**：负责管理事务的生命周期（开始、提交、中止）。它使用一个内部主题（`__transaction_state`）来记录事务的状态。
