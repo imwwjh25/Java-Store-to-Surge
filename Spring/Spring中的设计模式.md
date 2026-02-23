@@ -2,7 +2,7 @@ Spring 框架的设计贯穿了大量经典设计模式，核心是通过模式�
 
 ## 一、核心基础模式（Spring 架构基石）
 
-### 1. 工厂模式（Factory Pattern）—— IOC 容器的核心
+### 1. 工厂模式（Creator.Factory Pattern）—— IOC 容器的核心
 
 #### 模式定位：创建型模式，隐藏对象创建逻辑，通过工厂统一生成对象
 
@@ -40,7 +40,7 @@ Spring 框架的设计贯穿了大量经典设计模式，核心是通过模式�
 
 #### 模式价值：解耦对象创建与使用，统一管理 Bean 生命周期，支持依赖注入。
 
-### 2. 单例模式（Singleton Pattern）—— 默认 Bean 作用域
+### 2. 单例模式（Creator.Singleton Pattern）—— 默认 Bean 作用域
 
 #### 模式定位：创建型模式，确保一个类仅存在一个实例，提供全局访问点
 
@@ -377,7 +377,7 @@ Spring 框架的设计贯穿了大量经典设计模式，核心是通过模式�
 - **应用场景**：Spring 中对 Bean 的「动态增强」（如 `BeanWrapper` 对 Bean 的属性访问增强、`TransactionAwareInvocationHandler` 对事务的增强）。
 - **核心逻辑**：通过装饰器类包装目标 Bean，在不修改目标类的前提下，添加额外功能（如属性类型转换、事务控制）。
 
-### 9. 原型模式（Prototype Pattern）—— 复制对象
+### 9. 原型模式（Creator.Prototype Pattern）—— 复制对象
 
 - **应用场景**：Spring 中 `prototype` 作用域的 Bean，容器通过「原型模式」创建 Bean 实例（每次 `getBean()` 复制一个新实例）。
 - **核心逻辑**：通过 `BeanUtils.copyProperties()` 等工具复制对象属性，快速创建新实例，避免重复初始化。
