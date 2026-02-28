@@ -1,4 +1,4 @@
-# Git Commit Message 规范模板
+# Git Commit Message 规范模板1
 
 ## 格式规范
 
