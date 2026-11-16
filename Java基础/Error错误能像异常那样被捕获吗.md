@@ -8,9 +8,7 @@ Java 异常处理机制的核心是通过**异常类型体系**、**捕获与抛
 
 - **Error**：表示 JVM 层面的严重错误（如内存溢出），程序通常无法恢复，无需捕获。
 
-- Exception
-
-  ：表示程序可处理的异常，分为：
+- Exception ：表示程序可处理的异常，分为：
 
     - 受检异常（Checked Exception）：编译期强制要求捕获（如`IOException`）。
     - 非受检异常（Unchecked Exception）：运行时抛出，编译期不强制捕获（如`NullPointerException`、`ArrayIndexOutOfBoundsException`）。
